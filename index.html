@@ -671,7 +671,7 @@
         </svg>
         Recursos
       </a>
-      <a href="javascript:void(0)" class="nav-button" onclick="showMarket()">
+      <a href="javascript:void(0)" class="nav-button" onclick="showProfile()">
         <svg viewBox="0 0 24 24">
           <path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
         </svg>
@@ -1113,20 +1113,67 @@
       });
     }
 
-    function showResources() {
-      const mainContent = document.getElementById('mainContent');
-      const searchBarSection = document.getElementById('searchBarSection');
-      const featuresSection = document.querySelector('.features-section');
-      const resourcesSection = document.querySelector('.resources-section');
+    function showProfile() {
+      const blogContainer = document.querySelector('.blog-container');
+      
+      blogContainer.innerHTML = `
+        <div class="blog-post">
+          <h2 style="color: var(--dark); margin-bottom: 2rem; font-size: 1.8rem;">Mi Perfil</h2>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+            <div class="community-card" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+              <div style="background: var(--primary); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                <svg viewBox="0 0 24 24" style="width: 50px; height: 50px;">
+                  <path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                </svg>
+              </div>
+              <h3 style="color: var(--dark); margin-bottom: 0.5rem; text-align: center;">Mi Cuenta</h3>
+              <p style="color: #666; margin-bottom: 1rem; text-align: center;">Gestiona tu información personal y preferencias</p>
+              <button style="width: 100%; background: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='var(--secondary)'" onmouseout="this.style.background='var(--primary)'">
+                Editar Perfil
+              </button>
+            </div>
 
-      mainContent.classList.remove('active');
-      searchBarSection.classList.remove('active');
-      featuresSection.classList.add('hidden');
-      resourcesSection.classList.remove('hidden');
-    }
+            <div class="community-card" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+              <div style="background: var(--secondary); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                <svg viewBox="0 0 24 24" style="width: 50px; height: 50px;">
+                  <path fill="currentColor" d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                </svg>
+              </div>
+              <h3 style="color: var(--dark); margin-bottom: 0.5rem; text-align: center;">Mis Cursos</h3>
+              <p style="color: #666; margin-bottom: 1rem; text-align: center;">Accede a tus cursos y monitorea tu progreso</p>
+              <button style="width: 100%; background: var(--secondary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='var(--primary)'" onmouseout="this.style.background='var(--secondary)'">
+                Ver Cursos
+              </button>
+            </div>
 
-    function showSubjects() {
-      alert('Próximamente: ¡Explora todos nuestros temas!');
+            <div class="community-card" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+              <div style="background: var(--primary); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                <svg viewBox="0 0 24 24" style="width: 50px; height: 50px;">
+                  <path fill="currentColor" d="M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M7,7H17V5H19V19H5V5H7V7Z"/>
+                </svg>
+              </div>
+              <h3 style="color: var(--dark); margin-bottom: 0.5rem; text-align: center;">Mis Logros</h3>
+              <p style="color: #666; margin-bottom: 1rem; text-align: center;">Revisa tus certificados y reconocimientos</p>
+              <button style="width: 100%; background: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='var(--secondary)'" onmouseout="this.style.background='var(--primary)'">
+                Ver Logros
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const profileCards = document.querySelectorAll('.community-card');
+      profileCards.forEach(card => {
+        card.addEventListener('mouseover', () => {
+          card.style.transform = 'translateY(-10px)';
+          card.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)';
+        });
+        card.addEventListener('mouseout', () => {
+          card.style.transform = 'translateY(0)';
+          card.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+        });
+      });
     }
   </script>
 </body>
